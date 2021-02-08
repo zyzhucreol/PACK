@@ -10,11 +10,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from harvesters.core import Harvester
 h = Harvester()
-h.add_file('C:\Program Files\Allied Vision\Vimba_3.1\VimbaGigETL\Bin\Win64\VimbaGigETL.cti')
+h.add_file('C:\Program Files\Allied Vision\Vimba_4.2\VimbaGigETL\Bin\Win64\VimbaGigETL.cti')
 h.update()
 
 #%% camera settings
-exp_time=50000; # longest exposure time needed to reveal the details
+exp_time=30000; # longest exposure time needed to reveal the details
 framerate=5;
 gain=0;
 # color balance settings for lens
@@ -34,9 +34,9 @@ ia.remote_device.node_map.BalanceRatioAbs.value = gain_b
 ia.remote_device.node_map.ExposureTimeAbs.value = exp_time
 ia.remote_device.node_map.Gain.value = gain
 ia.remote_device.node_map.AcquisitionFrameRateAbs.value = framerate
+ia.start_acquisition(run_in_background=True)
 
 #%% start acqusition
-ia.start_acquisition(run_in_background=True)
 buffer=ia.fetch_buffer()
 # do something with the buffer
 component=buffer.payload.components[0]

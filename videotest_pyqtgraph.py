@@ -1,6 +1,5 @@
 ## has to be in the pyqtgraph example folder to work
 import sys
-sys.path.append('/home/pi/.local/lib/python3.7/site-packages/pyqtgraph/examples')
 
 import picamera
 import picamera.array
@@ -18,9 +17,6 @@ stream = picamera.array.PiRGBArray(camera)
 """
 Demonstrates very basic use of ImageItem to display image data inside a ViewBox.
 """
-
-## Add path to library (just for examples; you do not need this)
-import initExample
 
 from pyqtgraph.Qt import QtCore, QtGui
 import numpy as np
