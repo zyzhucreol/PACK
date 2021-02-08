@@ -17,6 +17,10 @@ def frame_handler(cam, frame):
 with Vimba.get_instance() as vimba:
     cams = vimba.get_all_cameras()
     with cams[0] as cam:
+        # synchronous acquisition
+        for frame in cam.get_frame_generator(limit=10):
+            pass
+        # asynchronous streaming
         cam.start_streaming(frame_handler)
         time.sleep(5)
         cam.stop_streaming()

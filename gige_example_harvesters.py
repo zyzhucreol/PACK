@@ -34,9 +34,11 @@ ia.remote_device.node_map.BalanceRatioAbs.value = gain_b
 ia.remote_device.node_map.ExposureTimeAbs.value = exp_time
 ia.remote_device.node_map.Gain.value = gain
 ia.remote_device.node_map.AcquisitionFrameRateAbs.value = framerate
-ia.start_acquisition(run_in_background=True)
 
-#%% start acqusition
+#%% start acquisition
+ia.start_acquisition()
+
+#%% fetch data continuously
 buffer=ia.fetch_buffer()
 # do something with the buffer
 component=buffer.payload.components[0]
@@ -45,7 +47,7 @@ height = component.height
 data_format = component.data_format
 img=np.reshape(component.data,(height,width),order='C')
 # plot the image
-plt.figure()
+plt.figure(1)
 plt.imshow(img,cmap='jet')
 buffer.queue()
 
