@@ -6,4 +6,6 @@ To modify the package for a different camera:
 * Check and prepare the list of attribute names for camera control. For example, to change the exposure time, some camera uses the attribute name "ExposureTime", some uses "ExposureTimeAbs". These names can be found in NI-MAX if NI-imaq is installed.
 
 # Change log and known issues
-02-27-2021: Video preview in pyqtgraph using ImageItem object is slow (3~4fps); print fps statement conflicts with '\r' when preview window is open.
+02-27-2021:
+1. Video preview in pyqtgraph using ImageItem object is slow (3~4fps); print fps statement conflicts with '\r' when preview window is open.
+2. Wrote an example of frame processing routine "process_frame()" in gige_example_vimba.py
