@@ -10,3 +10,6 @@ To modify the package for a different camera:
 1. Video preview in pyqtgraph using ImageItem object is slow (3~4fps); print fps statement conflicts with '\r' when preview window is open.
 2. Wrote an example of frame processing routine "process_frame()" in gige_example_vimba.py.
 3. Tested the video speed in pyqtgraph with the example "video speed test", and settled on the 1024 X 1024 uint8 grayscale as the preview mode (max ~30fps).
+
+02-28-2021:
+1. Add video test using cv2; pyqtgraph not working.

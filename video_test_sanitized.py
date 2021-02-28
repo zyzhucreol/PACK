@@ -3,10 +3,6 @@
 Sanitized version of the "video speed test" example from pyqtgraph
 data displayed in the video is generated on-the-fly, reaching ~20fps
 """
-## Add pyqtgraph example path to library (you NEED it for running examples in standalong mode)
-import sys
-sys.path.append('C:\\ProgramData\\Anaconda3\\Lib\\site-packages\\pyqtgraph\\examples\\')
-# import initExample ## Add path to library (just for examples; you do not need this)
 
 from pyqtgraph.Qt import QtGui, QtCore
 import numpy as np
@@ -42,7 +38,7 @@ lastTime = ptime.time()
 fps = None
 def update():
     global ui, lastTime, fps, img
-    data_raw=np.random.normal(size=(width,height),loc=128,scale=64)
+    data_raw=np.abs(np.fft.fft2(np.random.normal(size=(width,height),loc=128,scale=64)))
     data_on_the_fly=np.uint8(data_raw) # data must be uint8 if autoLevels=False
     img.setImage(data_on_the_fly, autoLevels=False)
     ui.stack.setCurrentIndex(0)
