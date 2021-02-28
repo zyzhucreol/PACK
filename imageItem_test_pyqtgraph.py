@@ -1,18 +1,18 @@
 ## has to be in the pyqtgraph example folder to work
 import sys
 
-import picamera
-import picamera.array
-from fractions import Fraction
-camera=picamera.PiCamera()
-camera.iso = 80
-camera.framerate = 5
-camera.shutter_speed = 700000
-camera.exposure_mode = 'off'
-camera.awb_mode = 'off'
-camera.awb_gains = (Fraction(313, 128), Fraction(289, 128))
-camera.resolution = (1664,1232)
-stream = picamera.array.PiRGBArray(camera)
+# import picamera
+# import picamera.array
+# from fractions import Fraction
+# camera=picamera.PiCamera()
+# camera.iso = 80
+# camera.framerate = 5
+# camera.shutter_speed = 700000
+# camera.exposure_mode = 'off'
+# camera.awb_mode = 'off'
+# camera.awb_gains = (Fraction(313, 128), Fraction(289, 128))
+# camera.resolution = (1664,1232)
+# stream = picamera.array.PiRGBArray(camera)
 # -*- coding: utf-8 -*-
 """
 Demonstrates very basic use of ImageItem to display image data inside a ViewBox.
@@ -54,21 +54,20 @@ def updateData():
     # Display data from random number generator for debug purpose
     data=np.random.random((2056,2464))
     img.setImage(data)#,autoLevels=False, levels=[0,255])
-    stream.seek(0)
-    stream.truncate()
+    # stream.seek(0)
+    # stream.truncate()
     QtCore.QTimer.singleShot(1, updateData)
     now = ptime.time()
     fps2 = 1.0 / (now-updateTime)
     updateTime = now
     fps = fps * 0.9 + fps2 * 0.1
     
-    print("fps=",fps,end='\r')
+    print("fps=%s\r" % fps,end="")
     
 
 updateData()
 
 ## Start Qt event loop unless running in interactive mode.
 if __name__ == '__main__':
-    import sys
     if (sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION'):
         QtGui.QApplication.instance().exec_()
