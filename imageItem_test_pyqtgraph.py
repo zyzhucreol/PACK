@@ -52,7 +52,7 @@ def updateData():
     # img_int_array=img_rgb_array[:,:,0]*0.299+img_rgb_array[:,:,1]*0.587+img_rgb_array[:,:,2]*0.114
     # data=np.transpose(img_int_array)
     # Display data from random number generator for debug purpose
-    data=np.random.random((2056,2464))
+    data=np.random.random((1024,1024))
     img.setImage(data)#,autoLevels=False, levels=[0,255])
     # stream.seek(0)
     # stream.truncate()
