@@ -5,6 +5,9 @@ To modify the package for a different camera:
 * Make sure the camera supports GenICam protocol. Obtain the transport layer *.cti file from the camera SDK directory.
 * Check and prepare the list of attribute names for camera control. For example, to change the exposure time, some camera uses the attribute name "ExposureTime", some uses "ExposureTimeAbs". These names can be found in NI-MAX if NI-imaq is installed.
 
+# Usage:
+* Currently the only fully-functioning executable file is vimba_cv2_test.py
+
 # Change log and known issues
 02-27-2021:
 1. Video preview in pyqtgraph using ImageItem object is slow (3~4fps); print fps statement conflicts with '\r' when preview window is open.
