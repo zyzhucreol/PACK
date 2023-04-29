@@ -9,6 +9,7 @@ __pycache__/*
 *.user
 *.userosscache
 *.sln.docstates
+*.vcxproj.filters
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
